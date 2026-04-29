@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Area | Avv. Riccardo Scagnetti</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="admin-body">
+
+    <header class="admin-header">
+        <div class="container admin-nav">
+            <div class="logo">
+                <i class="fa-solid fa-lock"></i>
+                <span>Area Amministrativa</span>
+            </div>
+            <a href="index.html" class="btn-ghost" style="color:var(--text-dark); border-color:var(--border);">Torna al
+                Sito</a>
+        </div>
+    </header>
+
+    <section class="admin-dashboard">
+        <div class="container admin-container">
+
+            <div class="admin-panel">
+                <h2 class="admin-title">Crea Nuovo Articolo</h2>
+                <p class="admin-desc">Utilizza l'editor sottostante per comporre e formattare il testo della newsletter.
+                </p>
+
+                <form action="#" class="admin-form">
+
+
+                    <div class="form-group">
+                        <label>Immagine di Copertina</label>
+                        <div class="image-upload-container">
+                            <input type="file" id="post-image" accept="image/*" class="admin-file-input">
+                            <label for="post-image" class="upload-btn" id="upload-label">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> Seleziona un'immagine dal dispositivo
+                            </label>
+
+                            <div class="image-preview" id="image-preview-container" style="display: none;">
+                                <img id="image-preview" src="" alt="Anteprima copertina">
+                                <button type="button" class="remove-image-btn" onclick="removeImage()"
+                                    title="Rimuovi immagine">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="post-title">Titolo dell'articolo</label>
+                        <input type="text" id="post-title" class="admin-input" placeholder="Inserisci il titolo..."
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="post-intro">Introduzione dell'articolo</label>
+                        <textarea id="post-intro" class="admin-input admin-textarea" rows="3"
+                            placeholder="Scrivi una breve introduzione (summary)..."></textarea>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label>Contenuto</label>
+
+                        <div class="editor-wrapper">
+                            <div class="editor-toolbar">
+                                <button type="button" class="toolbar-btn" onclick="formatText('bold')"
+                                    title="Grassetto">
+                                    <i class="fa-solid fa-bold"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" onclick="formatText('italic')"
+                                    title="Corsivo">
+                                    <i class="fa-solid fa-italic"></i>
+                                </button>
+                                <div class="toolbar-divider"></div>
+                                <button type="button" class="toolbar-btn" onclick="formatText('insertOrderedList')"
+                                    title="Lista Numerata">
+                                    <i class="fa-solid fa-list-ol"></i>
+                                </button>
+                                <button type="button" class="toolbar-btn" onclick="formatText('insertUnorderedList')"
+                                    title="Lista Puntata">
+                                    <i class="fa-solid fa-list-ul"></i>
+                                </button>
+                                <div class="toolbar-divider"></div>
+
+                                <select class="toolbar-select" onchange="formatText('fontSize', this.value)"
+                                    title="Dimensione Testo">
+                                    <option value="3" selected>Normale</option>
+                                    <option value="2">Piccolo</option>
+                                    <option value="5">Grande</option>
+                                    <option value="6">Molto Grande</option>
+                                </select>
+
+                                <div class="toolbar-divider"></div>
+
+                                <button type="button" class="btn-ai" id="ai-improve-btn" onclick="improveTextWithAI()"
+                                    title="Rielabora e migliora lo stile con l'Intelligenza Artificiale">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i> <span>Migliora con AI</span>
+                                </button>
+                            </div>
+
+                            <div class="editor-content" contenteditable="true"
+                                placeholder="Scrivi qui il tuo articolo..."></div>
+                        </div>
+                    </div>
+
+                    <div class="admin-actions">
+                        <button type="button" class="btn"
+                            style="background:var(--bg-light); color:var(--text-dark);">Salva Bozza</button>
+                        <button type="submit" class="btn btn-dark">Pubblica Articolo</button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // --- Logica Editor Testo Base ---
+        // Aggiorna la funzione esistente per accettare il parametro 'value'
+        function formatText(command, value = null) {
+            document.execCommand(command, false, value);
+            document.querySelector('.editor-content').focus();
+        }
+
+        // --- Logica Upload Anteprima Immagine ---
+        const fileInput = document.getElementById('post-image');
+        const previewContainer = document.getElementById('image-preview-container');
+        const previewImage = document.getElementById('image-preview');
+        const uploadLabel = document.getElementById('upload-label');
+
+        fileInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.addEventListener('load', function () {
+                    previewImage.setAttribute('src', this.result);
+                    previewContainer.style.display = 'inline-block';
+                    uploadLabel.style.display = 'none'; // Nascondi il pulsante di caricamento
+                });
+                reader.readAsDataURL(file); // Legge il file come Data URL per la preview locale
+            }
+        });
+
+        function removeImage() {
+            fileInput.value = ''; // Resetta l'input
+            previewImage.setAttribute('src', '');
+            previewContainer.style.display = 'none';
+            uploadLabel.style.display = 'inline-block'; // Mostra di nuovo il pulsante
+        }
+
+
+        // --- Simulazione AI Assistant ---
+        async function improveTextWithAI() {
+            const btn = document.getElementById('ai-improve-btn');
+            const editor = document.querySelector('.editor-content');
+            const icon = btn.querySelector('i');
+            const textSpan = btn.querySelector('span');
+
+            // 1. Estrai il testo attuale da inviare all'AI
+            const currentText = editor.textContent.trim();
+            if (!currentText) {
+                alert("Scrivi prima qualcosa nell'editor da far migliorare all'AI.");
+                return;
+            }
+
+            // 2. Modifica l'interfaccia: stato di caricamento
+            btn.classList.add('loading');
+            icon.className = 'fa-solid fa-spinner';
+            textSpan.textContent = 'Elaborazione...';
+
+            try {
+                // ---------------------------------------------------------
+                // 3. QUI IN FUTURO INSERIRAI LA CHIAMATA API (es. fetch)
+                // Invierai 'currentText' al tuo backend e aspetterai la risposta.
+                // ---------------------------------------------------------
+
+                // Simulo un tempo di attesa della rete di 2 secondi
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                // Risposta simulata formattata in HTML
+                const simulatedAIResponse = `
+            <p>Ecco una versione <strong>migliorata</strong> e più professionale del tuo testo, generata dall'Intelligenza Artificiale.</p>
+            <ul>
+                <li>Il tono è stato reso più istituzionale e adatto a uno studio legale.</li>
+                <li>La leggibilità è stata ottimizzata.</li>
+            </ul>
+            <p><em>(In futuro, collegando una vera API, qui apparirà la rielaborazione del tuo testo reale.)</em></p>
+        `;
+
+                // 4. Inserisci il testo migliorato nell'editor
+                editor.innerHTML = simulatedAIResponse;
+
+            } catch (error) {
+                alert("Errore di connessione con l'AI.");
+            } finally {
+                // 5. Ripristina l'interfaccia originale del pulsante
+                btn.classList.remove('loading');
+                icon.className = 'fa-solid fa-wand-magic-sparkles';
+                textSpan.textContent = 'Migliora con AI';
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

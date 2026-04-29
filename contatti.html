@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti | Avv. Riccardo Scagnetti</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contatti.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <span>Avv. Riccardo Scagnetti</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link-item">Home</a></li>
+                    <li><a href="servizi.html" class="nav-link-item">Servizi</a></li>
+                    <li><a href="newsletter.html" class="nav-link-item">Newsletter</a></li>
+                    <li><a href="contatti.html" class="nav-link-item active">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-page">
+        <div class="hero-page-inner">
+            <div class="container hero-page-content">
+                <span class="hero-eyebrow" style="color: var(--gold);">COME RAGGIUNGERMI</span>
+                <h1>Parliamo del<br><em>Tuo Caso</em></h1>
+                <p>Prenota una consulenza in studio o richiedi un primo parere scrivendo un messaggio. Ti risponderò nel
+                    minor tempo possibile.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-layout">
+
+                <div class="contact-info-panel">
+                    <h2>I Miei Recapiti</h2>
+                    <p class="contact-subtitle">Siamo a disposizione per assistenza legale a privati e aziende su tutto
+                        il territorio marchigiano.</p>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h4>Studio Legale</h4>
+                                <p>Via Ancona, 188<br>62100, Macerata (MC)</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h4>Telefono</h4>
+                                <p>+39 345 604 2057</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>avv.riccardoscagnetti@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form action="#" method="POST" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" id="nome" name="nome" placeholder="Es. Mario Rossi" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Indirizzo Email *</label>
+                                <input type="email" id="email" name="email" placeholder="Es. mario@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="messaggio">Il tuo messaggio *</label>
+                            <textarea id="messaggio" name="messaggio" rows="5"
+                                placeholder="Descrivi brevemente di cosa hai bisogno..." required></textarea>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="privacy" required>
+                            <label for="privacy">Acconsento al trattamento dei dati personali (Privacy Policy).</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-dark w-100">Invia Messaggio <i
+                                class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i></button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

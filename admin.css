@@ -1,0 +1,313 @@
+/* --- ADMIN AREA STYLES --- */
+.admin-body {
+    background-color: #f1f5f9;
+    /* Sfondo leggermente grigio per staccare dal sito pubblico */
+}
+
+.admin-header {
+    background-color: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.admin-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-dashboard {
+    padding: 60px 0;
+}
+
+.admin-container {
+    max-width: 800px;
+    /* Layout più stretto per l'editor */
+}
+
+.admin-panel {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border);
+}
+
+.admin-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.admin-desc {
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.admin-input {
+    width: 100%;
+    padding: 14px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-dark);
+}
+
+.admin-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+/* Rich Text Editor UI */
+.editor-wrapper {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.editor-toolbar {
+    background-color: #f8fafc;
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.toolbar-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.toolbar-btn:hover {
+    background-color: #e2e8f0;
+    color: var(--primary-blue);
+}
+
+.toolbar-divider {
+    width: 1px;
+    height: 20px;
+    background-color: var(--border);
+    margin: 0 10px;
+}
+
+.editor-content {
+    min-height: 300px;
+    padding: 20px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-dark);
+    outline: none;
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+.editor-content:empty:before {
+    content: attr(placeholder);
+    color: #cbd5e1;
+    pointer-events: none;
+}
+
+/* Azioni */
+.admin-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+/* Responsive */
+@media screen and (max-width: 640px) {
+    .admin-panel {
+        padding: 20px;
+    }
+}
+
+/* --- UPLOAD IMMAGINE COPERTINA --- */
+.image-upload-container {
+    border: 2px dashed var(--border);
+    border-radius: 6px;
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+}
+
+.image-upload-container:hover {
+    border-color: var(--gold);
+    background-color: var(--white);
+}
+
+.admin-file-input {
+    display: none;
+    /* Nascondiamo l'input di default per usare la label stilizzata */
+}
+
+.upload-btn {
+    display: inline-block;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.upload-btn i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    color: var(--gold);
+}
+
+.image-preview {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s;
+}
+
+.remove-image-btn:hover {
+    background: #ef4444;
+    /* Rosso per l'azione distruttiva */
+}
+
+/* --- FORMATTAZIONE LISTE NELL'EDITOR TESTO --- */
+.editor-content ul,
+.editor-content ol {
+    margin: 12px 0 12px 20px;
+    /* Spaziatura verticale e indentazione base */
+    padding-left: 20px;
+    /* Rientro aggiuntivo per i punti/numeri */
+}
+
+/* Ripristina i pallini per le liste non ordinate */
+.editor-content ul {
+    list-style-type: disc;
+}
+
+/* Ripristina i numeri per le liste ordinate */
+.editor-content ol {
+    list-style-type: decimal;
+}
+
+/* Spaziatura tra i singoli elementi della lista */
+.editor-content li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Assicura che non ci siano conflitti con i "trattini dorati" custom 
+   usati in altre sezioni del sito (es. bento-list) */
+.editor-content li::before {
+    content: none !important;
+}
+
+
+/* Stile per il campo Introduzione */
+.admin-textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+    background-color: #fcfcfc;
+}
+
+/* Stile per il selettore della dimensione testo */
+.toolbar-select {
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    background-color: var(--white);
+    cursor: pointer;
+    outline: none;
+}
+
+.toolbar-select:hover {
+    border-color: var(--gold);
+}
+
+/* --- AI ASSISTANT BUTTON --- */
+.btn-ai {
+    margin-left: auto;
+    /* Spinge il pulsante tutto a destra nella toolbar */
+    background: linear-gradient(135deg, var(--primary-blue), #1a2a40);
+    color: var(--white);
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-ai:hover {
+    box-shadow: 0 4px 12px rgba(35, 56, 83, 0.25);
+    transform: translateY(-1px);
+}
+
+.btn-ai i {
+    color: var(--gold);
+}
+
+/* Stato di caricamento (mentre l'AI "pensa") */
+.btn-ai.loading {
+    opacity: 0.8;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-ai.loading i {
+    animation: spin-ai 1s linear infinite;
+    color: var(--white);
+}
+
+@keyframes spin-ai {
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,159 @@
+/* --- CHI SONO STYLES --- */
+
+/* Sezione Bio */
+.bio-section {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.bio-image-wrapper {
+    position: relative;
+    background-color: var(--blue-dark);
+    border-radius: 20px;
+    overflow: visible;
+}
+
+.bio-img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.bio-image-wrapper:hover .bio-img {
+    filter: grayscale(0%);
+}
+
+.bio-experience-badge {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    background-color: var(--gold);
+    color: var(--primary-blue);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.bio-experience-badge strong {
+    display: block;
+    font-size: 2rem;
+    font-family: var(--font-display);
+    line-height: 1;
+}
+
+.bio-experience-badge span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bio-text h2 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.bio-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--text-gray);
+    line-height: 1.8;
+}
+
+/* Sezione Missione/Valori */
+.mission-section {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.value-card {
+    background: var(--white);
+    padding: 50px 40px;
+    border-radius: 15px;
+    text-align: center;
+    border-bottom: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    border-bottom-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.value-card i {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.value-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--primary-blue);
+}
+
+.value-card p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* CTA Finale */
+.about-cta {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.cta-box {
+    background-color: var(--primary-blue);
+    padding: 60px 40px;
+    border-radius: 20px;
+    color: var(--white);
+}
+
+.cta-box h2 {
+    color: var(--white);
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+}
+
+.cta-box p {
+    color: #94a3b8;
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 992px) {
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .bio-image-wrapper {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}

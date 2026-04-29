@@ -1,0 +1,1352 @@
+/* ==========================================================
+   STUDIO LEGALE AVV. RICCARDO SCAGNETTI — style.css
+   Redesign: stessa palette, layout migliorati, tipografia elevata
+   ========================================================== */
+
+/* --- VARIABILI (palette INVARIATA) --- */
+:root {
+    --primary-blue: #233853;
+    --blue-dark: #0f172a;
+    /* Usato per sfondi scuri */
+    --blue-mid: #1e293b;
+    /* Sfondo hero destra */
+    --gold: #d1b272;
+    --gold-hover: #e5c687;
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+    --bg-light: #eceff1;
+    --bg-subtle: #f1f5f9;
+    /* Grigio-blu tenuo per alternanza bento */
+    --white: #ffffff;
+    --border: #e2e8f0;
+
+    /* NUOVI: tipografia più autorevole (Playfair per display, DM Sans per corpo) */
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+}
+
+/* --- RESET --- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-gray);
+    line-height: 1.65;
+    background-color: var(--white);
+}
+
+/* Titoli con font display */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-display);
+    color: var(--text-dark);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+em {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- TIPOGRAFIA CONDIVISA --- */
+.section-tag {
+    display: block;
+    text-align: center;
+    color: var(--gold);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+}
+
+.section-desc {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 60px auto;
+    font-size: 1.05rem;
+    color: var(--text-gray);
+}
+
+.section-intro {
+    margin-bottom: 56px;
+}
+
+.icon-gold {
+    color: var(--gold);
+}
+
+/* --- BOTTONI --- */
+.btn {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-dark {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.btn-dark:hover {
+    background-color: #1a2a40;
+}
+
+.btn-gold {
+    background-color: var(--gold);
+    color: var(--primary-blue);
+}
+
+.btn-gold:hover {
+    background-color: var(--gold-hover);
+}
+
+.btn-gold i {
+    margin-left: 8px;
+}
+
+/* Bottone fantasma (outline) per variante secondaria */
+.btn-ghost {
+    display: inline-block;
+    padding: 13px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    transition: all 0.25s ease;
+}
+
+.btn-ghost:hover {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+
+/* ==========================================================
+   NAVBAR
+   ========================================================== */
+.navbar {
+    background-color: var(--white);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 0 var(--border);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo i {
+    color: var(--gold);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+    padding-bottom: 2px;
+}
+
+/* Sottolineatura animata al hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--gold);
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: var(--gold);
+}
+
+
+/* ==========================================================
+   HERO — SPLIT SCREEN (index.html)
+   MODIFICA: banda diagonale tramite clip-path per rompere
+   la divisione 50/50 rigida. Layout a griglia 2 colonne.
+   ========================================================== */
+.hero-split {
+    position: relative;
+    min-height: 760px;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+/* Sfondo scuro per l'intera hero */
+.hero-bg-dark {
+    position: absolute;
+    inset: 0;
+    background-color: var(--blue-dark);
+    z-index: 0;
+}
+
+/* Banda chiara destra con taglio diagonale
+   (clip-path crea il taglio dall'alto a sinistra verso il basso a sinistra) */
+.hero-bg-diagonal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 52%;
+    background-color: var(--blue-mid);
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 0;
+}
+
+/* Griglia a 2 colonne per il contenuto */
+.hero-main-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-end;
+    gap: 0;
+    width: 100%;
+    min-height: 760px;
+}
+
+/* Colonna sinistra: testo */
+.hero-content {
+    padding: 100px 60px 80px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    color: var(--white);
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero-body {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 36px;
+}
+
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+/* Striscia di credenziali (numero + label) */
+.hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+}
+
+.trust-item {
+    display: flex;
+    flex-direction: column;
+    padding-right: 32px;
+}
+
+.trust-item strong {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.trust-item span {
+    font-size: 0.78rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.trust-divider {
+    width: 1px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.12);
+    margin-right: 32px;
+}
+
+/* Colonna destra: foto */
+.hero-image-col {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Icona watermark grande sullo sfondo della hero */
+.hero-watermark-icon {
+    position: absolute;
+    font-size: 40vw;
+    color: #ffffff;
+    opacity: 0.03;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-img-lawyer {
+    position: relative;
+    z-index: 2;
+    max-height: 850px;
+    object-fit: contain;
+    object-position: bottom;
+}
+
+/* --- RESPONSIVE HERO --- */
+@media screen and (max-width: 991px) {
+    .hero-split {
+        min-height: auto;
+    }
+
+    .hero-bg-diagonal {
+        display: none;
+    }
+
+    .hero-bg-dark {
+        width: 100%;
+    }
+
+    .hero-main-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        text-align: center;
+    }
+
+    .hero-content {
+        padding: 100px 0 60px 0;
+        align-items: center;
+    }
+
+    .hero-cta-group {
+        justify-content: center;
+    }
+
+    .hero-trust {
+        justify-content: center;
+    }
+
+    .hero-image-col {
+        display: none;
+    }
+
+    /* Foto nascosta su mobile */
+}
+
+@media screen and (max-width: 768px) {
+    .hero-title {
+        font-size: 2.6rem;
+    }
+
+    .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}
+
+
+/* ==========================================================
+   COMPETENZE (index.html)
+   MODIFICA: sfondo neutro, rimosso top:-3em, griglia 3 colonne
+   con card centrale elevata visivamente (sfondo scuro).
+   ========================================================== */
+.services-section {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+}
+
+/* Griglia 3 colonne, card centrale rialzata */
+.competenze-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+/* Card base: bianca con bordo sottile */
+.competenza-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 44px 36px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.competenza-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* Card centrale: sfondo scuro, risalta sul layout */
+.card-featured {
+    background-color: var(--blue-dark);
+    border-color: transparent;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.4);
+    margin-top: -20px;
+    /* Leggero rialzo rispetto alle card laterali */
+    margin-bottom: -20px;
+}
+
+.card-featured h3 {
+    color: var(--white);
+}
+
+.card-featured p {
+    color: #94a3b8;
+}
+
+.card-featured .card-list li {
+    color: #94a3b8;
+}
+
+/* Icona in cerchio */
+.card-icon-wrap {
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
+    background-color: rgba(209, 178, 114, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 24px;
+}
+
+.card-featured .card-icon-wrap {
+    background-color: rgba(209, 178, 114, 0.18);
+}
+
+.competenza-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    color: #394962;
+}
+
+.competenza-card p {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    margin-bottom: 22px;
+    line-height: 1.6;
+}
+
+/* Lista interna card */
+.card-list {
+    list-style: none;
+    margin-bottom: 28px;
+}
+
+.card-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.card-list li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.card-featured .card-list li::before {
+    color: var(--gold);
+}
+
+/* Link in fondo alle card */
+.card-link {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+}
+
+.card-link:hover {
+    gap: 12px;
+}
+
+/* --- RESPONSIVE COMPETENZE --- */
+@media screen and (max-width: 991px) {
+    .competenze-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .card-featured {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+
+/* ==========================================================
+   CHI SONO — TIMELINE (index.html)
+   MODIFICA: layout a 2 colonne (intro sticky | timeline scorrevole)
+   invece del layout tutto centrato precedente.
+   ========================================================== */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+/* Layout a 2 colonne asimmetriche */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+}
+
+/* Header sinistra: sticky durante lo scroll della timeline */
+.about-header {
+    position: sticky;
+    top: 100px;
+}
+
+.about-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.about-header p {
+    font-size: 1.05rem;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+/* Timeline verticale */
+.timeline-col {
+    padding-top: 8px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 32px;
+}
+
+/* Linea verticale dorata */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), rgba(209, 178, 114, 0.2));
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 44px;
+    padding-left: 28px;
+}
+
+.timeline-item-last {
+    padding-bottom: 0;
+}
+
+/* Dot sulla linea */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -36px;
+    /* Allineato alla linea */
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--gold);
+}
+
+/* Marker con anno */
+.tl-marker {
+    margin-bottom: 10px;
+}
+
+.tl-year {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(209, 178, 114, 0.1);
+    padding: 3px 10px;
+    border-radius: 30px;
+}
+
+.tl-content h3 {
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.tl-content p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.65;
+}
+
+/* Dot speciale per "Oggi" */
+.tl-marker-today .tl-year {
+    background: var(--gold);
+    color: var(--primary-blue);
+}
+
+/* --- RESPONSIVE TIMELINE --- */
+@media screen and (max-width: 900px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .about-header {
+        position: static;
+    }
+
+    .about-title {
+        font-size: 2.2rem;
+    }
+}
+
+
+/* ==========================================================
+   PER I COLLEGHI (index.html)
+   MODIFICA: sezione a sfondo scuro a 2 colonne (testo | sedi)
+   invece della card isolata centrata.
+   ========================================================== */
+.colleagues-section {
+    padding: 100px 0;
+    background-color: var(--blue-dark);
+}
+
+.colleagues-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.colleagues-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.colleagues-text h2 {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.colleagues-text p {
+    color: #94a3b8;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.colleagues-sedi {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 40px;
+}
+
+.colleagues-sedi h4 {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+}
+
+/* Lista sedi — stile pill */
+.sedi-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sedi-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sedi-list li:last-child {
+    border-bottom: none;
+}
+
+.sedi-list li i {
+    color: var(--gold);
+    font-size: 0.85rem;
+    width: 16px;
+}
+
+/* --- RESPONSIVE COLLEGHI --- */
+@media screen and (max-width: 860px) {
+    .colleagues-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.footer {
+    background-color: var(--primary-blue);
+    color: #94a3b8;
+    padding: 72px 0 32px 0;
+}
+
+/* Striscia ornamentale dorata sopra il footer */
+.footer-top-bar {
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin-bottom: 64px;
+    opacity: 0.6;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr;
+    gap: 48px;
+    margin-bottom: 56px;
+}
+
+.footer-brand h3 {
+    font-family: var(--font-body);
+    color: var(--white);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-brand h3 i {
+    color: var(--gold);
+}
+
+.footer-brand p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.footer-nav h4,
+.footer-contact h4 {
+    font-family: var(--font-body);
+    color: var(--white);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+}
+
+.footer-nav ul,
+.footer-contact ul {
+    list-style: none;
+}
+
+.footer-nav li,
+.footer-contact li {
+    margin-bottom: 12px;
+    font-size: 0.92rem;
+}
+
+.footer-nav a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+    color: var(--gold);
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #94a3b8;
+}
+
+.footer-contact i {
+    color: var(--gold);
+    margin-top: 3px;
+    flex-shrink: 0;
+    width: 16px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.83rem;
+    color: #475569;
+}
+
+/* --- RESPONSIVE FOOTER --- */
+@media screen and (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: span 1;
+    }
+
+    .footer-brand h3 {
+        justify-content: center;
+    }
+
+    .footer-brand {
+        text-align: center;
+    }
+
+    .footer-nav h4,
+    .footer-contact h4 {
+        text-align: center;
+    }
+
+    .footer-nav li,
+    .footer-contact li {
+        justify-content: center;
+    }
+}
+
+
+/* ==========================================================
+   HERO PAGINE INTERNE (servizi.html)
+   MODIFICA: aggiunta struttura editoriale con bordo sinistro
+   dorato e tipografia display per il titolo.
+   ========================================================== */
+.hero-page {
+    background-color: var(--blue-dark);
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elemento decorativo: bordo sinistro dorato */
+.hero-page::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gold);
+}
+
+.hero-page-content {
+    max-width: 720px;
+}
+
+.hero-page h1 {
+    font-family: var(--font-display);
+    color: var(--white);
+    font-size: 3.4rem;
+    margin: 16px 0 20px;
+    line-height: 1.1;
+}
+
+.hero-page p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-page h1 {
+        font-size: 2.4rem;
+    }
+}
+
+
+/* ==========================================================
+   BENTO GRID — SERVIZI (servizi.html)
+   MODIFICA: colori di alternanza più marcati, numeri ordinali
+   come elemento visivo, card scura per Penale.
+   ========================================================== */
+.bento-section {
+    padding: 100px 0;
+    background-color: var(--bg-light);
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    grid-auto-rows: minmax(min-content, max-content);
+}
+
+.bento-card {
+    border-radius: 14px;
+    padding: 40px 38px;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.bento-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.08);
+}
+
+.bento-card.bg-white {
+    background-color: var(--white);
+}
+
+.bento-card.bg-light {
+    background-color: var(--bg-subtle);
+}
+
+/* Card scura speciale per Penale */
+.bento-card.bg-dark-card {
+    background-color: var(--blue-dark);
+    border-color: transparent;
+}
+
+.bento-card.bg-dark-card h3 {
+    color: var(--white);
+}
+
+.bento-card.bg-dark-card p {
+    color: #94a3b8;
+}
+
+.bento-card.bg-dark-card .bento-list li {
+    color: #94a3b8;
+}
+
+.bento-card.bg-dark-card .bento-list li::before {
+    color: var(--gold);
+}
+
+/* Numero ordinale decorativo in sfondo */
+.bento-number {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.05);
+    position: absolute;
+    top: 16px;
+    right: 28px;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.bento-number-light {
+    color: rgba(255, 255, 255, 0.06);
+}
+
+.bento-card.bg-dark-card .bento-number {
+    color: rgba(255, 255, 255, 0.05);
+}
+
+.bento-card.span-2 {
+    grid-column: span 2;
+}
+
+.bento-card.span-3 {
+    grid-column: span 3;
+}
+
+.bento-card i {
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+    display: inline-block;
+}
+
+.bento-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.bento-card p {
+    font-family: var(--font-body);
+    font-size: 0.93rem;
+    margin-bottom: 22px;
+    color: var(--text-gray);
+    flex-grow: 1;
+    line-height: 1.65;
+}
+
+/* Lista puntata interna bento */
+.bento-list {
+    list-style: none;
+    margin-top: auto;
+}
+
+.bento-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 9px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--text-gray);
+}
+
+.bento-list li::before {
+    content: "–";
+    color: var(--gold);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+}
+
+/* --- RESPONSIVE BENTO --- */
+@media screen and (max-width: 992px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bento-card.span-2,
+    .bento-card.span-3 {
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-card.span-2,
+    .bento-card.span-3,
+    .bento-card.span-1 {
+        grid-column: span 1;
+    }
+}
+
+
+/* ==========================================================
+   SEZIONE COLLEGHI — servizi.html (separata dalla bento grid)
+   ========================================================== */
+.bento-colleghi-section {
+    padding: 80px 0;
+    background-color: var(--blue-dark);
+}
+
+.bento-colleghi-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.bento-colleghi-text h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.bento-colleghi-text p {
+    color: #94a3b8;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.bento-colleghi-sedi {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 36px;
+}
+
+.bento-colleghi-sedi h4 {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+/* Lista sedi chiara (su sfondo scuro) */
+.sedi-list-light {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sedi-list-light li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 0.93rem;
+    color: #cbd5e1;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sedi-list-light li:last-child {
+    border-bottom: none;
+}
+
+.sedi-list-light li i {
+    color: var(--gold);
+    font-size: 0.82rem;
+    width: 14px;
+}
+
+@media screen and (max-width: 860px) {
+    .bento-colleghi-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+
+/* ==========================================================
+   MENU HAMBURGER (MOBILE) — invariato rispetto all'originale
+   ========================================================== */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    cursor: pointer;
+    z-index: 1001;
+    transition: opacity 0.3s ease;
+}
+
+.menu-toggle.active {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.close-menu {
+    display: none;
+    font-size: 2rem;
+    color: var(--primary-blue);
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+@media screen and (max-width: 991px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 30px 30px 30px;
+        gap: 30px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .close-menu {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        font-size: 1.15rem;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 10px;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    /* Rimuove underline animata nel panel */
+    .nav-menu .btn-dark {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+}

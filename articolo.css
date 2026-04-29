@@ -1,0 +1,126 @@
+/* --- ARTICOLO SINGOLO STYLES --- */
+
+.article-container {
+    background-color: var(--white);
+    padding-bottom: 80px;
+}
+
+/* Container ristretto per la leggibilità del testo (max ~800px) */
+.container-narrow {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header & Cover */
+.article-header {
+    margin-bottom: 50px;
+}
+
+.article-cover {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.article-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.article-date {
+    color: var(--gold);
+}
+
+.article-category {
+    color: var(--text-gray);
+}
+
+.article-title {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.article-summary {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-gray);
+    font-style: italic;
+    border-left: 3px solid var(--gold);
+    padding-left: 20px;
+}
+
+/* Corpo del Testo */
+.article-body h2 {
+    font-size: 1.8rem;
+    margin: 40px 0 20px;
+    color: var(--primary-blue);
+}
+
+.article-body p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+}
+
+/* Liste (Coerenti con Task 1.2) */
+.article-body ul {
+    margin: 24px 0 24px 20px;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.article-body li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+/* Footer Articolo */
+.article-footer {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+}
+
+.btn-back {
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s;
+}
+
+.btn-back:hover {
+    color: var(--gold);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .article-title {
+        font-size: 2.2rem;
+    }
+
+    .article-cover {
+        height: 300px;
+    }
+}

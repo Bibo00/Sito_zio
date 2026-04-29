@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avv. Riccardo Scagnetti | Studio Legale</title>
+    <!-- Cambiato: Playfair Display per i titoli (autorevolezza), DM Sans per il corpo (leggibilità moderna) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <span>Avv. Riccardo Scagnetti</span>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="overlay" id="overlay"></div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <div class="close-menu" id="close-menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link-item">Home</a></li>
+                    <li><a href="servizi.html" class="nav-link-item">Servizi</a></li>
+                    <li><a href="#chi-sono" class="nav-link-item">Chi Sono</a></li>
+                    <li><a href="#contatti" class="nav-link-item">Contatti</a></li>
+                </ul>
+                <a href="#contatti" class="btn btn-dark">Contattami</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===================== HERO SPLIT SCREEN ===================== -->
+    <!-- MODIFICA LAYOUT: Tolta la divisione netta 50/50.
+         Il layout ora usa una banda diagonale (clip-path) che rompe la simmetria,
+         creando movimento visivo senza distogliere l'attenzione dal contenuto. -->
+    <section id="home" class="hero-split">
+        <div class="hero-bg-dark"></div>
+        <div class="hero-bg-diagonal"></div>
+
+        <div class="container hero-main-grid">
+            <!-- Colonna sinistra: testo -->
+            <div class="hero-content">
+                <span class="hero-eyebrow">STUDIO LEGALE · MACERATA</span>
+                <h1 class="hero-title">Avv. Riccardo<br><em>Scagnetti</em></h1>
+                <p class="hero-body">Consulenza e Assistenza Legale per Privati e Aziende.<br>Competenza, dedizione e risultati concreti.</p>
+                <div class="hero-cta-group">
+                    <a href="#contatti" class="btn btn-gold">Contattami Ora <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="servizi.html" class="btn-ghost">Scopri i Servizi</a>
+                </div>
+                <!-- Credenziali di fiducia sotto il CTA -->
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <strong>2017</strong>
+                        <span>Iscritto all'Albo</span>
+                    </div>
+                    <div class="trust-divider"></div>
+                    <div class="trust-item">
+                        <strong>3</strong>
+                        <span>Aree di Pratica</span>
+                    </div>
+                    <div class="trust-divider"></div>
+                    <div class="trust-item">
+                        <strong>Marche</strong>
+                        <span>Territorio coperto</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colonna destra: foto avvocato -->
+            <div class="hero-image-col">
+                <i class="fa-solid fa-scale-balanced hero-watermark-icon"></i>
+                <img src="foto avvocato-Photoroom_edited.png" class="hero-img-lawyer" alt="Avv. Riccardo Scagnetti">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SEZIONE COMPETENZE ===================== -->
+    <!-- MODIFICA LAYOUT: Rimosso il "card-container" con top:-3em che creava
+         collisioni visive con la sezione precedente. Sfondo cambiato da #e2e3ff
+         (stonato) a --bg-light (neutro, coerente). Griglia 3 colonne mantenuta
+         ma con spaziatura e padding interni migliorati. -->
+    <section id="competenze" class="services-section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-tag">AREE DI PRATICA</span>
+                <h2 class="section-title">Competenze dello Studio</h2>
+                <p class="section-desc">Assistenza e consulenza in ambito stragiudiziale e giudiziale con approccio moderno e pragmatico.</p>
+            </div>
+
+            <div class="competenze-grid">
+                <div class="competenza-card">
+                    <div class="card-icon-wrap">
+                        <i class="fa-solid fa-gavel"></i>
+                    </div>
+                    <h3>Diritto Penale</h3>
+                    <p>Assistenza tempestiva ed empatica a indagati, imputati e persone offese in ogni fase del procedimento.</p>
+                    <ul class="card-list">
+                        <li>Difesa in indagini e processo</li>
+                        <li>Denunce e querele</li>
+                        <li>Tutela persone offese</li>
+                        <li>Misure alternative</li>
+                    </ul>
+                    <a href="servizi.html#penale" class="card-link">Approfondisci <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Card centrale: visivamente elevata con sfondo scuro -->
+                <div class="competenza-card card-featured">
+                    <div class="card-icon-wrap">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h3>Diritto Civile e Lavoro</h3>
+                    <p>Consulenza a privati e aziende per controversie civili e di lavoro, privilegiando soluzioni ADR rapide e certe.</p>
+                    <ul class="card-list">
+                        <li>Recupero crediti</li>
+                        <li>Contrattualistica</li>
+                        <li>Vertenze di lavoro</li>
+                        <li>Mediazione e negoziazione</li>
+                    </ul>
+                    <a href="servizi.html#civile" class="card-link">Approfondisci <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <div class="competenza-card">
+                    <div class="card-icon-wrap">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <h3>Diritto Internazionale</h3>
+                    <p>Assistiamo aziende e privati nei rapporti con l'estero, prevenendo controversie con contratti personalizzati.</p>
+                    <ul class="card-list">
+                        <li>Contratti con l'estero</li>
+                        <li>Recupero crediti int.</li>
+                        <li>Controversie transfrontaliere</li>
+                        <li>Operazioni internazionali</li>
+                    </ul>
+                    <a href="servizi.html#internazionale" class="card-link">Approfondisci <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CHI SONO / TIMELINE ===================== -->
+    <!-- MODIFICA LAYOUT: La sezione ora è strutturata a 2 colonne su desktop:
+         a sinistra l'intro testuale fissa (sticky), a destra la timeline scorrevole.
+         Questo rompe il layout "tutto centrato" e crea più dinamismo visivo. -->
+    <section id="chi-sono" class="about-section">
+        <div class="container about-layout">
+
+            <!-- Colonna sinistra: header fisso -->
+            <div class="about-header">
+                <span class="section-tag" style="text-align:left;">CHI SONO</span>
+                <h2 class="about-title">Il Mio<br><em>Percorso</em></h2>
+                <p>Dalla formazione accademica all'esperienza nelle aule di tribunale: un approccio professionale costruito sul campo.</p>
+                <a href="#contatti" class="btn btn-dark" style="margin-top: 2rem; display: inline-block;">Parliamo del Tuo Caso</a>
+            </div>
+
+            <!-- Colonna destra: timeline -->
+            <div class="timeline-col">
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="tl-marker">
+                            <span class="tl-year">2014</span>
+                        </div>
+                        <div class="tl-content">
+                            <h3>Laurea Magistrale con Lode</h3>
+                            <p>Conseguimento della laurea in Giurisprudenza con il massimo dei voti, spinto da una profonda vocazione per la giustizia e lo studio del diritto penale e civile.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="tl-marker">
+                            <span class="tl-year">2017</span>
+                        </div>
+                        <div class="tl-content">
+                            <h3>Iscrizione all'Albo degli Avvocati</h3>
+                            <p>Inizio ufficiale della professione forense. Prime esperienze dirette nelle aule di tribunale, affiancando professionisti di spicco in casi di alta complessità.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="tl-marker">
+                            <span class="tl-year">2020</span>
+                        </div>
+                        <div class="tl-content">
+                            <h3>Specializzazione in Aule di Giustizia</h3>
+                            <p>Consolidamento dell'esperienza pratica sul campo, assumendo la difesa in processi delicati e sviluppando solida competenza nella gestione delle crisi.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item timeline-item-last">
+                        <div class="tl-marker tl-marker-today">
+                            <span class="tl-year">Oggi</span>
+                        </div>
+                        <div class="tl-content">
+                            <h3>Rete di Competenze Integrate</h3>
+                            <p>Costruzione di un network di collaborazioni con avvocati specializzati per offrire una tutela legale completa: dal diritto del lavoro alla responsabilità medica.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PER I COLLEGHI ===================== -->
+    <!-- MODIFICA LAYOUT: Rimossa la card isolata centrata. Ora è una sezione
+         a sfondo scuro con layout asimmetrico: testo a sinistra, lista di
+         sedi a destra. Dà maggiore rilevanza e impatto alla sezione. -->
+    <section class="colleagues-section">
+        <div class="container">
+            <div class="colleagues-layout">
+                <div class="colleagues-text">
+                    <i class="fa-regular fa-handshake colleagues-icon"></i>
+                    <span class="section-tag" style="text-align:left; color: var(--gold-hover);">RETE PROFESSIONALE</span>
+                    <h2>Per i Colleghi</h2>
+                    <p>Lo studio offre ai Colleghi che necessitino di un sostituto processuale o di svolgere adempimenti di cancelleria ed estratti di ruolo un servizio di domiciliatari presenti su tutto il territorio marchigiano.</p>
+                    <a href="#contatti" class="btn btn-gold" style="margin-top: 1.5rem;">Contattami</a>
+                </div>
+                <div class="colleagues-sedi">
+                    <h4>Uffici Giudiziari Coperti</h4>
+                    <ul class="sedi-list">
+                        <li><i class="fa-solid fa-location-dot"></i> Ancona</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Macerata</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Fermo</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Camerino</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Ascoli Piceno</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Pesaro e Urbino</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer id="contatti" class="footer">
+        <div class="container">
+            <!-- Striscia dorata ornamentale sopra il footer -->
+            <div class="footer-top-bar"></div>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> Avv. Riccardo Scagnetti</h3>
+                    <p>Consulenza e Assistenza Legale per Privati e Aziende.</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigazione</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="servizi.html">Servizi</a></li>
+                        <li><a href="#chi-sono">Chi Sono</a></li>
+                        <li><a href="#contatti">Contatti</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contatti</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> Via Ancona, 188 – 62100, Macerata (MC)</li>
+                        <li><i class="fa-solid fa-phone"></i> +39 345 604 2057</li>
+                        <li><i class="fa-regular fa-envelope"></i> avv.riccardoscagnetti@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Studio Legale Avv. Riccardo Scagnetti. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const navMenu = document.getElementById('nav-menu');
+        const overlay = document.getElementById('overlay');
+        const navLinks = document.querySelectorAll('.nav-links a, .nav-menu .btn');
+
+        function toggleMenu() {
+            navMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) toggleMenu();
+            });
+        });
+    </script>
+</body>
+</html>
