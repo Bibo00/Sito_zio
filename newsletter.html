@@ -11,9 +11,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="newsletter.css">
+
 </head>
 
 <body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <span>Avv. Riccardo Scagnetti</span>
+            </div>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="overlay" id="overlay"></div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <div class="close-menu" id="close-menu">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link-item">Home</a></li>
+                    <li><a href="servizi.html" class="nav-link-item">Servizi</a></li>
+                    <li><a href="chi-sono.html" class="nav-link-item">Chi Sono</a></li>
+                    <li><a href="newsletter.html" class="nav-link-item">Newsletter</a></li>
+                </ul>
+                <a href="contatti.html" class="btn btn-dark">Contattami</a>
+            </nav>
+        </div>
+    </header>
+
 
     <section class="hero-page">
         <div class="hero-page-inner">
@@ -58,6 +87,43 @@
         </div>
     </section>
 
+
+    <footer id="contatti" class="footer">
+        <div class="container">
+            <!-- Striscia dorata ornamentale sopra il footer -->
+            <div class="footer-top-bar"></div>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><i class="fa-solid fa-scale-balanced"></i> Avv. Riccardo Scagnetti</h3>
+                    <p>Consulenza e Assistenza Legale per Privati e Aziende.</p>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navigazione</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="servizi.html">Servizi</a></li>
+                        <li><a href="chi-sono.html">Chi Sono</a></li>
+                        <li><a href="newsletter.html">Newsletter</a></li>
+                        <li><a href="contatti.html">Contatti</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contatti</h4>
+                    <ul>
+                        <li><i class="fa-solid fa-location-dot"></i> Via Ancona, 188 – 62100, Macerata (MC)</li>
+                        <li><i class="fa-solid fa-phone"></i> +39 345 604 2057</li>
+                        <li><i class="fa-regular fa-envelope"></i> avv.riccardoscagnetti@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Studio Legale Avv. Riccardo Scagnetti. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
 </body>
 
 </html>
