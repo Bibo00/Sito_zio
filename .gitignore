@@ -1,0 +1,11 @@
+# Dipendenze (librerie scaricate da npm)
+node_modules/
+
+# File contenenti chiavi segrete o configurazioni locali
+.env
+
+# File di log di npm
+npm-debug.log*
+
+# File di sistema (se usi Mac)
+.DS_Store
